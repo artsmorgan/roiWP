@@ -3386,6 +3386,27 @@ img.alignnone {
 
 
 
+/* * *  CONTACT FORM  * * */
+.form1 .wdform_section{
+	width: 50%;
+	margin: 0 auto;
+	display: block !important;
+}
+
+.form1 .wdform_page{
+	/*background-color: transparent !important;*/
+	min-height: 500px;
+	border-radius: 15px !important;
+}
+
+.wdform_section{
+	font-family: arial, helvetica, san-serif;
+}
+.entry-content
+.form1 input[type="text"] {
+    border-radius: 5px !important;
+    /*padding: 15px !important;*/
+}    
 
 
 
