@@ -15,7 +15,10 @@
 			<?php //get_sidebar( 'main' ); ?>
 
 			<div class="site-info">				
-				<a href="#">icon email: info@royalsportsinc.com</a>
+				<a href="#">
+					<i class="fa fa-envelope-o"></i>
+ 					info@royalsportsinc.com
+ 				</a>
 				<a href="#" class="pull-right">RoyalSports Inc | 2015</a>
 			</div><!-- .site-info -->
 		</footer><!-- #colophon -->
