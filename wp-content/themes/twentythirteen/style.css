@@ -103,7 +103,7 @@ button,
 input,
 select,
 textarea {
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-family: "Source Sans Pro", Helvetica, sans-serif !important;
 }
 
 body {
@@ -789,6 +789,8 @@ img.wp-smiley,
 
 .site-main {
 	position: relative;
+	width: 70%;
+	margin: 25px auto;
 }
 
 .site-main .sidebar-container {
@@ -827,7 +829,7 @@ img.wp-smiley,
 	margin: 0 auto;
 	max-width: 1080px;
 	/*min-height: 230px;*/
-	padding: 0 20px;
+	/*padding: 0 20px;*/
 	text-decoration: none;
 	width: 100%;
 }
@@ -881,6 +883,9 @@ div.nav-menu > ul {
 	line-height: 1;
 	padding: 15px 20px;
 	text-decoration: none;
+	font-family: tahoma,arial;
+	font-size: 19px;
+	font-style: normal;
 }
 
 .nav-menu li:hover > a,
@@ -997,15 +1002,19 @@ ul.nav-menu .focus > ul,
 
 .hentry {
 	padding: 40px 0;
+	border-bottom: 3px solid red;
 }
 
 .entry-header,
-.entry-content,
 .entry-summary,
 .entry-meta {
 	margin: 0 auto;
 	/*max-width: 604px;*/
 	width: 70%;
+}
+
+.entry-content{
+	text-align: justify;
 }
 
 .sidebar .entry-header,
@@ -2038,16 +2047,20 @@ footer.entry-meta {
  */
 
 .archive-header {
-	background-color: #e8e5ce;
+	border-bottom: 3px solid #B20E0E;
+	/*background-color: #E8E5CE;*/
+	text-align: center;
 }
 
 .archive-title,
 .archive-meta {
-	font: 300 italic 30px "Source Sans Pro", Helvetica, sans-serif;
+	font-family: Helvetica,arial, sans-serif;
 	margin: 0 auto;
 	max-width: 1040px;
-	padding: 30px 0;
+	padding: 15px 0;
 	width: 100%;
+	font-size: 36px;
+font-weight: bold;
 }
 
 .archive-meta {
@@ -3258,10 +3271,13 @@ footer.entry-meta {
 }
 
 .btn{
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	padding: 8px 15px;
-	
+	border: 3px solid #ccc !important;
+	border-radius: 15px;
+	padding: 8px 25px;
+	width: 200px;
+	font-size: 13px;
+	/*text-align: center;*/
+	/*margin-top: 25px;*/
 }
 
 .btn:hover{
@@ -3270,14 +3286,14 @@ footer.entry-meta {
 
 .logo-row {
   border-bottom: 5px solid #000;
-  height: 112px;
-  padding: 50px 0;  
+  height: 120px;
+  padding: 15px 0;  
 }
 
 .btn-subscribe{
 	margin-left: 15px;
 	background: #ff8400;
-	color: #fff;	
+	color: #fff !important;	
 }
 
 .btn-subscribe:hover{
@@ -3388,7 +3404,7 @@ img.alignnone {
 
 /* * *  CONTACT FORM  * * */
 .form1 .wdform_section{
-	width: 50%;
+	width: 10`0%;
 	margin: 0 auto;
 	display: block !important;
 }
@@ -3406,7 +3422,294 @@ img.alignnone {
 .form1 input[type="text"] {
     border-radius: 5px !important;
     /*padding: 15px !important;*/
-}    
+}   
+
+.menu-btn-wrapper{
+	float: right;
+	margin-top: 25px;
+} 
+
+.fadeIn-5 {
+    -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 5s; /* Firefox < 16 */
+        -ms-animation: fadein 5s; /* Internet Explorer */
+         -o-animation: fadein 5s; /* Opera < 12.1 */
+            animation: fadein 5s;
+}
+
+.fadeIn-7 {
+    -webkit-animation: fadein 7s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 7s; /* Firefox < 16 */
+        -ms-animation: fadein 7s; /* Internet Explorer */
+         -o-animation: fadein 7s; /* Opera < 12.1 */
+            animation: fadein 7s;
+            animation: fall 0.5s;
+}
+
+.fadeIn-10 {
+    -webkit-animation: fadein 10s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 10s; /* Firefox < 16 */
+        -ms-animation: fadein 10s; /* Internet Explorer */
+         -o-animation: fadein 10s; /* Opera < 12.1 */
+            animation: fadein 10s;
+            animation: fall 0.2s;
+}
+
+@keyframes fall {
+    from { margin-top: 0; }
+    to   { margin-top: 5px; }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.subscribe-container{
+	background: url('/roi/images/subscribe-bg.png') no-repeat;
+	min-height: 550px;
+	border-radius: 8px;
+}
+.subscription-item{
+	background: #fff;
+	/*padding: 10px;*/
+	border-radius: 8px;
+	box-shadow: 0px 0px 15px #fff;
+	float: left;
+	padding-bottom: 10px;
+    height: 360px;
+}
+.item-container{	
+	float: left;
+width: 28%;
+min-height: 400px;
+margin: 48px 25px;
+}
+
+.stars-rate{
+	font-size: 10px;
+	color:orange;
+	float: left;
+	/*text-indent: -9999px;*/
+}
+
+.stars{
+	width: 95px;
+	margin: 0 auto;
+}
+
+.subscription-txt{
+	text-align: center;
+	margin-top: 45px;	
+	float: left;
+}
+
+.line{
+	width: 100%;
+	height: 5px;
+	float: left;
+}
+
+.green-s{
+	background: #00af66;
+	color:#fff;
+}
+.green-txt{
+	color:#00af66;
+}
+
+.orange-s{
+	background: #f5aa57;
+	color:#fff;
+}
+.orange-txt{
+	color: #f5aa57;
+}
+
+.purple-s{
+	background: #80498b;
+	color:#fff;
+}
+
+.purple-txt{
+	color:#80498b;
+}
+
+.subscription-circle{
+	float: left;
+	position: relative;
+	padding: 15px 12px;
+	border-radius: 75px;
+	left: 40%;
+	top: -30px;
+	font-size: 22px;
+}
+
+.save{
+	margin-top: 140px;
+	text-align: center;
+	width: 265px;
+}
+
+.entry-meta, .entry-content{
+	margin: 0 !important;	
+	font-family: "Source Sans Pro", Helvetica, sans-serif !important;
+	font-size: 16px;
+	margin-top: 10px;
+}
+
+#login-modal #loginform {	
+    width: 230px;
+    margin: 0px auto;
+}
+
+#login-modal #loginform .button-primary{
+	width: 100%;
+}
+
+
+.contact-form{
+	margin-top: 30px;
+	width: 100%;
+}
+.contact-form .form{	
+	float: left;
+background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+padding: 15px 50px 15px 15px;
+border-radius: 8px 0 0 8px;
+box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.form-image
+{
+	background: url('/roi/images/vegas-bg.png') no-repeat;
+	width: 520px;
+	min-height: 530px;
+	float: left;
+	border-left: 3px solid red;
+}
+
+.free-pick-box{
+	float: left;
+	width: 411px;
+	min-height: 120px;
+	background: transparent url("/roi/images/dark-green-bg.png") no-repeat scroll 0% 0%;
+	border-radius: 8px;
+	margin-left: 40px;
+	margin-top: 20px;
+}
+
+.input-wrapper{
+	/*min-height: 30px;*/
+	width: 95%;
+	border: 1px solid #514E4E;
+	float: left;
+	border-radius: 8px;
+	margin: 10px 0px 0px 10px;
+	background: rgba(255, 255, 255, 0.1) none repeat scroll 0% 0%;
+	padding: 10px;
+}
+
+.free-pick-legend{
+	margin: 10px 0 0 22px;
+	float: left;
+	color: #fff;
+	font-size: 20px;
+}
+
+.white{
+	color:white;
+	margin-top: 10px;
+}
+
+.form9 .wdform_page {
+    background: none !important;   
+    padding-top: 0 !important;
+    max-height: 44px !important;
+}
+
+#form9{
+	float: left;
+	width: 94%;
+}
+
+.form9 .button-submit {
+	margin: 0 !important;
+}
+
+.input-wrapper .form9 .wdform-field{
+	padding: 0 !important;
+	width: 168px !important;
+float: left;
+
+}
+
+.input-wrapper .form9 .wdform_column{
+	padding-right: 0 !important;
+}
+.form9 input[type="text"]{
+	border: 0 !important;
+	background: none !important;
+	color:#fff;
+}
+
+.form9 .wdform-required{
+	display: none;
+}
+
+.form9 .button-submit{
+	background: orange !important;
+	border-radius: 20px !important;
+}
+.form9 .wdform-element-section{
+	width: 204px !important;
+}
+.input-wrapper .form9  .wdform_section .wdform-field  {
+	width: 120px !important;
+	float: right;
+}
+
+.input-submit{
+	float: right;
+}
+
+.input-field {
+	margin: 5px 0 0 10px;
+	float: left;
+}
+
+.input-wrapper .form9  .input-submit .wdform-field{
+	width: 120px !important;
+}
+
+.warning{
+	display: none;
+}
+
 
 
 
