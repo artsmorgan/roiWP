@@ -666,7 +666,7 @@
 
 /* Button 5 */
 .btn-5 {
-	/*background: #823aa0;*/
+	background: orange;
 	border:none !important;
 	color: #fff;
 	/*height: 70px;*/
@@ -704,6 +704,7 @@
 	width: 100%;
 	line-height: 2;
 	font-size: 180%;
+	color: #fff;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;

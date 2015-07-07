@@ -3271,7 +3271,7 @@ font-weight: bold;
 }
 
 .btn{
-	border: 3px solid #ccc;
+	border: 3px solid #ccc !important;
 	border-radius: 15px;
 	padding: 8px 25px;
 	width: 200px;
@@ -3590,3 +3590,129 @@ margin: 48px 25px;
 #login-modal #loginform .button-primary{
 	width: 100%;
 }
+
+
+.contact-form{
+	margin-top: 30px;
+	width: 100%;
+}
+.contact-form .form{	
+	float: left;
+background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+padding: 15px 50px 15px 15px;
+border-radius: 8px 0 0 8px;
+box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.form-image
+{
+	background: url('/roi/images/vegas-bg.png') no-repeat;
+	width: 520px;
+	min-height: 530px;
+	float: left;
+	border-left: 3px solid red;
+}
+
+.free-pick-box{
+	float: left;
+	width: 411px;
+	min-height: 120px;
+	background: transparent url("/roi/images/dark-green-bg.png") no-repeat scroll 0% 0%;
+	border-radius: 8px;
+	margin-left: 40px;
+	margin-top: 20px;
+}
+
+.input-wrapper{
+	/*min-height: 30px;*/
+	width: 95%;
+	border: 1px solid #514E4E;
+	float: left;
+	border-radius: 8px;
+	margin: 10px 0px 0px 10px;
+	background: rgba(255, 255, 255, 0.1) none repeat scroll 0% 0%;
+	padding: 10px;
+}
+
+.free-pick-legend{
+	margin: 10px 0 0 22px;
+	float: left;
+	color: #fff;
+	font-size: 20px;
+}
+
+.white{
+	color:white;
+	margin-top: 10px;
+}
+
+.form9 .wdform_page {
+    background: none !important;   
+    padding-top: 0 !important;
+    max-height: 44px !important;
+}
+
+#form9{
+	float: left;
+	width: 94%;
+}
+
+.form9 .button-submit {
+	margin: 0 !important;
+}
+
+.input-wrapper .form9 .wdform-field{
+	padding: 0 !important;
+	width: 168px !important;
+float: left;
+
+}
+
+.input-wrapper .form9 .wdform_column{
+	padding-right: 0 !important;
+}
+.form9 input[type="text"]{
+	border: 0 !important;
+	background: none !important;
+	color:#fff;
+}
+
+.form9 .wdform-required{
+	display: none;
+}
+
+.form9 .button-submit{
+	background: orange !important;
+	border-radius: 20px !important;
+}
+.form9 .wdform-element-section{
+	width: 204px !important;
+}
+.input-wrapper .form9  .wdform_section .wdform-field  {
+	width: 120px !important;
+	float: right;
+}
+
+.input-submit{
+	float: right;
+}
+
+.input-field {
+	margin: 5px 0 0 10px;
+	float: left;
+}
+
+.input-wrapper .form9  .input-submit .wdform-field{
+	width: 120px !important;
+}
+
+.warning{
+	display: none;
+}
+
+
+
+
+
+
+
