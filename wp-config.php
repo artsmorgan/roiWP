@@ -22,7 +22,7 @@ define('DB_NAME', 'roi');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'rootatlocalhost');
+define('DB_PASSWORD', '');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
