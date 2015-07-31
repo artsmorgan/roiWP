@@ -50,7 +50,10 @@
 	if(!is_user_logged_in() && $_SERVER['REQUEST_URI']=='/roi/index.php/category/picks/'){		
 		wp_redirect( home_url() ); exit;
 		exit;
-	} 
+	}
+	// echo 'bla >';
+	// $results = $wpdb->get_results( 'select * from membership;', OBJECT );	
+	// print_r($results); die();
 ?>
 <?php $args = array(
         'echo'           => true,

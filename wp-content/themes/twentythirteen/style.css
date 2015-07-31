@@ -107,7 +107,7 @@ textarea {
 }
 
 body {
-	background: url('images/bg-strip.jpg') fixed repeat-x;
+	background: url('/roi/images/bg-strip-2.png') repeat-x;
 	color: #141412;
 	line-height: 1.5;
 	margin: 0;
@@ -3285,7 +3285,7 @@ font-weight: bold;
 }
 
 .logo-row {
-  border-bottom: 5px solid #000;
+  /*border-bottom: 5px solid #000;*/
   height: 120px;
   padding: 15px 0;  
 }
@@ -3491,6 +3491,7 @@ img.alignnone {
 
 .subscribe-container{
 	background: url('/roi/images/subscribe-bg.png') no-repeat;
+	background-position: cover;
 	min-height: 550px;
 	border-radius: 8px;
 }
@@ -3710,7 +3711,30 @@ float: left;
 	display: none;
 }
 
+.about-us-box{
+	margin: 10px 0;
+	border: 10px solid #fff;
+	width: 100%;
+	padding: 0 25px 10px 25px;
+	background: #F6F6F6;
+	border-radius: 8px;
+	box-shadow: 1px 1px 5px #000;
+	float: left;
+}
+.about-us-title{
+	float: right;
+	margin-bottom: 15px;
+	padding: 0 10px 10px 10px;
+	background: white;
+	border-radius: 0 0 8px 8px;
+	font-weight: bold;
+}
 
+.about-content{
+	float: left;
+	width: 100%;
+	text-align: justify;
+}
 
 
 

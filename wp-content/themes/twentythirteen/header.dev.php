@@ -46,11 +46,12 @@
 </head>
 <?php
 	// print_r($_SERVER); die();
-
+	global $wpdb;
 	if(!is_user_logged_in() && $_SERVER['REQUEST_URI']=='/roi/roiWP/index.php/category/picks/'){		
 		wp_redirect( home_url() ); exit;
 		exit;
 	} 
+	
 ?>
 <?php $args = array(
         'echo'           => true,
