@@ -107,7 +107,7 @@ textarea {
 }
 
 body {
-	background: url('/roi/images/bg-strip-2.png') repeat-x;
+	background: url('/images/bg-strip-2.png') repeat-x;
 	color: #141412;
 	line-height: 1.5;
 	margin: 0;
@@ -3490,7 +3490,7 @@ img.alignnone {
 }
 
 .subscribe-container{
-	background: url('/roi/images/subscribe-bg.png') no-repeat;
+	background: url('/images/subscribe-bg.png') no-repeat;
 	background-position: cover;
 	min-height: 550px;
 	border-radius: 8px;
@@ -3607,7 +3607,7 @@ box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 
 .form-image
 {
-	background: url('/roi/images/vegas-bg.png') no-repeat;
+	background: url('/images/vegas-bg.png') no-repeat;
 	width: 520px;
 	min-height: 530px;
 	float: left;
@@ -3618,7 +3618,7 @@ box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 	float: left;
 	width: 411px;
 	min-height: 120px;
-	background: transparent url("/roi/images/dark-green-bg.png") no-repeat scroll 0% 0%;
+	background: transparent url("images/dark-green-bg.png") no-repeat scroll 0% 0%;
 	border-radius: 8px;
 	margin-left: 40px;
 	margin-top: 20px;

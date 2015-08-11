@@ -307,6 +307,7 @@ class WP_Users_List_Table extends WP_List_Table {
 		$editable_roles = array_keys( get_editable_roles() );
 
 		foreach ( $this->items as $userid => $user_object ) {
+
 			if ( count( $user_object->roles ) <= 1 ) {
 				$role = reset( $user_object->roles );
 			} elseif ( $roles = array_intersect( array_values( $user_object->roles ), $editable_roles ) ) {

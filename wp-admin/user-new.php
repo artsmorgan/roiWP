@@ -9,6 +9,7 @@
 /** WordPress Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
+
 if ( is_multisite() ) {
 	if ( ! current_user_can( 'create_users' ) && ! current_user_can( 'promote_users' ) )
 		wp_die( __( 'Cheatin&#8217; uh?' ), 403 );
@@ -97,6 +98,7 @@ Please click the following link to confirm the invite:
 	if ( ! is_multisite() ) {
 		$user_id = edit_user();
 
+
 		if ( is_wp_error( $user_id ) ) {
 			$add_user_errors = $user_id;
 		} else {
@@ -109,6 +111,8 @@ Please click the following link to confirm the invite:
 		}
 	} else {
 		// Adding a new user to this site
+		print_r($_POST);die();
+
 		$new_user_email = wp_unslash( $_REQUEST['email'] );
 		$user_details = wpmu_validate_user_signup( $_REQUEST['user_login'], $new_user_email );
 		if ( is_wp_error( $user_details[ 'errors' ] ) && !empty( $user_details[ 'errors' ]->errors ) ) {
@@ -423,7 +427,7 @@ if ( apply_filters( 'show_password_fields', true ) ) : ?>
 		<th scope="row"><label for="noconfirmation"><?php _e('Skip Confirmation Email') ?></label></th>
 		<td><label for="noconfirmation"><input type="checkbox" name="noconfirmation" id="noconfirmation" value="1" <?php checked( $new_user_ignore_pass ); ?> /> <?php _e( 'Add the user without sending an email that requires their confirmation.' ); ?></label></td>
 	</tr>
-	<?php } ?>
+	<?php } ?>	
 </table>
 
 <?php

@@ -4845,3 +4845,4 @@ function wp_delete_file( $file ) {
 		@unlink( $delete );
 	}
 }
+

@@ -597,3 +597,96 @@ function remove_menus()
 }
 add_action('admin_menu', 'remove_menus');
 
+function getUserExpirationDate($userId){
+
+	global $wpdb;
+	$query = 'select end_date from membership where id_user = ' .  $userId .' order by start_date desc limit 1';
+	
+	
+    if($userId){
+        $results = $wpdb->get_results( $query, OBJECT );
+        $results = (array) $results;
+        $results = $results[0]->end_date;
+        
+    }
+    else{
+        $results = null;
+    }
+    // print_r($results);die();
+    return $results;
+}
+
+//Use for membership function
+function custom_user_profile_fields($user){
+	$results = getUserExpirationDate($user->ID);
+    ?>
+    <h3>Membership Information</h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="company">Membership Expire</label></th>
+            <td>
+                <input type="text" class="regular-text" name="expiresIn" value="<?php echo $results; ?>" id="expiresIn" /><br />
+                <span class="description">Ex. 12/12/2016</span>
+            </td>
+        </tr>
+    </table>
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    <script>
+    	$(document).ready(function(){    	
+		    $( "#expiresIn" ).datepicker({ 
+		    	minDate: 0,
+		    	dateFormat: 'yy-mm-dd'
+		    });		
+    	})
+    </script>
+<?php
+}
+add_action( 'show_user_profile', 'custom_user_profile_fields' );
+add_action( 'edit_user_profile', 'custom_user_profile_fields' );
+add_action( "user_new_form", "custom_user_profile_fields" );
+
+//Use for membership function
+function save_membership($user_id){
+    global $wpdb;
+    # again do this only if you can
+    if(!current_user_can('manage_options'))
+        return false;
+ 	if(isset($_POST['expiresIn'])){
+
+ 		$expireDate = new DateTime($_POST['expiresIn']);
+
+ 		$insert_data = array(
+			'id_user' => $user_id,
+			'start_date' => date("Y-m-d H:i:s"),
+			'end_date' => $expireDate->format('Y-m-d H:i:s'),
+			'type' => 'web'
+		);
+
+		// print_r($insert_data);die();
+	    # save my custom field
+	    $wpdb->insert('membership',$insert_data);
+ 	}
+ 	
+}
+
+add_action('user_register', 'save_membership');
+add_action('profile_update', 'save_membership');
+
+
+//add columns to User panel list page
+function add_user_columns( $defaults ) {
+     $defaults['expiresIn'] = __('Expires In', 'user-column');
+     return $defaults;
+}
+function add_custom_user_columns($value, $column_name, $id) {
+      if( $column_name == 'expiresIn' ) {
+		return getUserExpirationDate($id);
+      }
+}
+add_action('manage_users_custom_column', 'add_custom_user_columns', 15, 3);
+add_filter('manage_users_columns', 'add_user_columns', 15, 1);
+
+
+

@@ -31,23 +31,23 @@
 	<![endif]-->
 	<?php wp_head(); ?>
 
-	<link rel="stylesheet" type="text/css" href="/roi/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
 	<!-- CSS3 button styles -->
-	<link rel="stylesheet" type="text/css" href="/roi/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="/roi/css/default.css" />
-	<link rel="stylesheet" type="text/css" href="/roi/css/component.css" />
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/css/default.css" />
+	<link rel="stylesheet" type="text/css" href="/css/component.css" />
 	
 	<!-- CSS3 button js -->
-	<script src="/roi/js/modernizr.custom.js"></script>
-	<script src="/roi/js/classie.js"></script>
-	<script src="/roi/js/bootstrap.min.js"></script>
+	<script src="/js/modernizr.custom.js"></script>
+	<script src="/js/classie.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
 
 
 </head>
 <?php
 	// print_r($_SERVER); die();
 
-	if(!is_user_logged_in() && $_SERVER['REQUEST_URI']=='/roi/index.php/category/picks/'){		
+	if(!is_user_logged_in() && $_SERVER['REQUEST_URI']=='/index.php/category/picks/'){		
 		wp_redirect( home_url() ); exit;
 		exit;
 	}
@@ -92,7 +92,7 @@
 		<header id="masthead" class="site-header" role="banner">
 			<div class="logo-row">
 				<a class="home-link fadeIn-5" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-					<img src="/roi/images/logo.png"/>
+					<img src="/images/logo.png"/>
 					<!-- <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2> -->
 				</a>	
 				<div class="menu-btn-wrapper">
