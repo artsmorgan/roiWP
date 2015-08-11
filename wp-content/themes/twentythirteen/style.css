@@ -107,7 +107,7 @@ textarea {
 }
 
 body {
-	background: url('/images/bg-strip-2.png') repeat-x;
+	
 	color: #141412;
 	line-height: 1.5;
 	margin: 0;
@@ -779,6 +779,7 @@ img.wp-smiley,
  */
 
 .site {
+	background: url('../../../images/bg-strip-2.png') repeat-x;
 	/*background: url('images/bg-strip.jpg') top repeat-x;*/
 	border-left: 1px solid #f2f2f2;
 	border-right: 1px solid #f2f2f2;
