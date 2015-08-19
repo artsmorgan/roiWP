@@ -3507,15 +3507,16 @@ img.alignnone {
 }
 .item-container{	
 	float: left;
-width: 28%;
-min-height: 400px;
-margin: 48px 25px;
+	width: 20%;
+    min-height: 400px;
+    margin: 48px 25px;
 }
 
 .stars-rate{
 	font-size: 10px;
 	color:orange;
 	float: left;
+	font-size: 15px !important;
 	/*text-indent: -9999px;*/
 }
 
@@ -3526,8 +3527,9 @@ margin: 48px 25px;
 
 .subscription-txt{
 	text-align: center;
-	margin-top: 45px;	
+	/*margin-top: 45px;	*/
 	float: left;
+	width: 100%;
 }
 
 .line{
@@ -3574,7 +3576,7 @@ margin: 48px 25px;
 .save{
 	margin-top: 140px;
 	text-align: center;
-	width: 265px;
+	width: 200px;
 }
 
 .entry-meta, .entry-content{

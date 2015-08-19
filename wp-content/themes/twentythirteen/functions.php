@@ -688,5 +688,91 @@ function add_custom_user_columns($value, $column_name, $id) {
 add_action('manage_users_custom_column', 'add_custom_user_columns', 15, 3);
 add_filter('manage_users_columns', 'add_user_columns', 15, 1);
 
+function myStartSession() {
+    if(!session_id()) {
+        session_start();}
+}
+
+function myEndSession() {
+    session_unset();
+    session_destroy(); 
+}
+
+if( !function_exists('single_user_login_uid_create')){
+    function single_user_login_uid_create($ID){
+            global $wpdb;
+            $get_hash = $wpdb->get_results("SELECT uni_hash FROM `wp_users` WHERE user_login='".$ID."'");           
+            if(isset($_COOKIE["user_uni_uid".$ID.""])){
+                     $user_uni_uid = $_COOKIE["user_uni_uid".$ID.""];                    
+                     if($get_hash[0]->uni_hash == ''){ $hash_result = $_COOKIE["user_uni_uid".$ID.""];}
+                        else{$hash_result = $get_hash[0]->uni_hash; }   
+                }else{
+                     $user_uni_uid = 'hash';
+                     if($get_hash[0]->uni_hash != ''){ $hash_result = $get_hash[0]->uni_hash;}
+                        else{$hash_result = 'hash'; }               
+                     }
+
+                     $check_time = $wpdb->get_results("SELECT session_time FROM `wp_users` WHERE user_login='".$ID."'");            
+                     if(!is_null($check_time)){$time_result = $check_time[0]->session_time;}
+                     else{$time_result = time()-2000;}  
+
+            if( (time() - $time_result < 1800)&&($hash_result != $user_uni_uid) ){
+                     myEndSession();
+                     wp_clearcookie();
+                     wp_die('<h1>User is login! </h1>', '', array( 'back_link' => true ));                   
+                     do_action('wp_logout');
+                     nocache_headers();
+                     $redirect_to = home_url();
+                     wp_redirect($redirect_to);                  
+                     exit();            
+                }else{                                   
+                     $_SESSION["LAST_ACTIVITY"] = time();
+                     $new_time = $_SESSION["LAST_ACTIVITY"];
+                     $randUID = md5(microtime().$_SERVER['REMOTE_ADD'] );
+                     $sql = "UPDATE  `wp_users` set `uni_hash`='".$randUID."', `session_time`='".$new_time."' WHERE user_login='".$ID."'";
+                     $wpdb->get_results($sql);
+                     setcookie("user_uni_uid", $randUID, 9999999999);
+                }       
+            }
+        } 
+
+if( !function_exists('single_user_login_uid_check')){
+    function single_user_login_uid_check(){
+        global $wpdb;       
+        $ID = wp_get_current_user();
+        $logout_url = wp_logout_url(home_url());
+        $user_uni_uid = $_COOKIE["user_uni_uid".$ID->user_login.""];
+        $sql = "SELECT  uni_hash FROM  `wp_users` WHERE uni_hash='".$user_uni_uid."'";      
+        $getinfo = $wpdb->get_results($sql); 
+        $check_time = $wpdb->get_results("SELECT session_time FROM `wp_users` WHERE user_login='".$ID->user_login."'");         
+        if(!is_null($check_time)){$time_result = $check_time[0]->session_time;}
+        else{$time_result = time()-2000;}       
+
+        if(($getinfo[0]->uni_hash != $user_uni_uid)&&(time() - $time_result < 1800)&&(is_user_logged_in()) ){
+            wp_clearcookie();
+            myEndSession();
+            do_action('wp_logout');
+            nocache_headers();
+            $redirect_to = home_url();
+            wp_redirect($redirect_to);
+            exit();
+        }else{
+            myStartSession();
+            if(!isset($_SESSION["LAST_ACTIVITY"])){$_SESSION["LAST_ACTIVITY"] = time(); }           
+            elseif (time() - $_SESSION["LAST_ACTIVITY"] > 120) {
+               $_SESSION["LAST_ACTIVITY"] = time();
+            }              
+               $new_time = $_SESSION["LAST_ACTIVITY"];
+               $sql = "UPDATE  `wp_users` set `session_time`='".$new_time."' WHERE user_login='".$ID->user_login."'";
+               $wpdb->get_results($sql);            
+        }       
+    }
+}
+add_action('wp_login', 'myStartSession', 1);
+add_action('wp_login','single_user_login_uid_create');
+add_action('wp_logout', 'myEndSession');
+add_action('init','single_user_login_uid_check');
+?>
+
 
 
