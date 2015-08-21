@@ -636,7 +636,6 @@ function custom_user_profile_fields($user){
     <script>
     	$(document).ready(function(){    	
 		    $( "#expiresIn" ).datepicker({ 
-		    	minDate: 0,
 		    	dateFormat: 'yy-mm-dd'
 		    });		
     	})
