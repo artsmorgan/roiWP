@@ -49,7 +49,24 @@
 
 	if(!is_user_logged_in() && $_SERVER['REQUEST_URI']=='/index.php/category/picks/'){		
 		wp_redirect( home_url() ); exit;
-		exit;
+	}
+	if(is_user_logged_in() && $_SERVER['REQUEST_URI']=='/index.php/category/picks/'){
+		global $wpdb;       
+	    $user = wp_get_current_user();
+	    $logout_url = wp_logout_url(home_url());
+	    // $user_uni_uid = $_COOKIE["user_uni_uid".$ID->user_login.""];
+	    $sql = "select * from membership where id_user = ".$user->ID." order by end_date desc limit 1;";  
+	    $getinfo = $wpdb->get_results($sql);    
+	    
+		$expiresIn = strtotime($getinfo[0]->end_date);		
+		// $today = date("Y-m-d H:i:s");		
+		$todayStr = strtotime(date("Y-m-d H:i:s"));
+		
+		if($todayStr > $expiresIn){
+			// print_r('Va jalando!');
+			wp_redirect( '/index.php/not-subscribe/' ); exit;
+		}
+		// print_r($_SESSION);
 	}
 	// echo 'bla >';
 	// $results = $wpdb->get_results( 'select * from membership;', OBJECT );	

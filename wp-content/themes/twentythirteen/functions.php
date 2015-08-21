@@ -716,23 +716,23 @@ if( !function_exists('single_user_login_uid_create')){
                      if(!is_null($check_time)){$time_result = $check_time[0]->session_time;}
                      else{$time_result = time()-2000;}  
 
-            if( (time() - $time_result < 1800)&&($hash_result != $user_uni_uid) ){
-                     myEndSession();
-                     wp_clearcookie();
-                     wp_die('<h1>User is login! </h1>', '', array( 'back_link' => true ));                   
-                     do_action('wp_logout');
-                     nocache_headers();
-                     $redirect_to = home_url();
-                     wp_redirect($redirect_to);                  
-                     exit();            
-                }else{                                   
-                     $_SESSION["LAST_ACTIVITY"] = time();
-                     $new_time = $_SESSION["LAST_ACTIVITY"];
-                     $randUID = md5(microtime().$_SERVER['REMOTE_ADD'] );
-                     $sql = "UPDATE  `wp_users` set `uni_hash`='".$randUID."', `session_time`='".$new_time."' WHERE user_login='".$ID."'";
-                     $wpdb->get_results($sql);
-                     setcookie("user_uni_uid", $randUID, 9999999999);
-                }       
+            // if( (time() - $time_result < 1800)&&($hash_result != $user_uni_uid) ){
+            //          myEndSession();
+            //          wp_clearcookie();
+            //          wp_die('<h1>User is login! </h1>', '', array( 'back_link' => true , 'logout_link'=> true));                   
+            //          do_action('wp_logout');
+            //          nocache_headers();
+            //          $redirect_to = home_url();
+            //          wp_redirect($redirect_to);                  
+            //          exit();            
+            //     }else{                                   
+            //          $_SESSION["LAST_ACTIVITY"] = time();
+            //          $new_time = $_SESSION["LAST_ACTIVITY"];
+            //          $randUID = md5(microtime().$_SERVER['REMOTE_ADD'] );
+            //          $sql = "UPDATE  `wp_users` set `uni_hash`='".$randUID."', `session_time`='".$new_time."' WHERE user_login='".$ID."'";
+            //          $wpdb->get_results($sql);
+            //          setcookie("user_uni_uid", $randUID, 9999999999);
+            //     }       
             }
         } 
 
@@ -772,6 +772,26 @@ add_action('wp_login', 'myStartSession', 1);
 add_action('wp_login','single_user_login_uid_create');
 add_action('wp_logout', 'myEndSession');
 add_action('init','single_user_login_uid_check');
+
+
+function checkMembership(){
+	global $wpdb;       
+    $ID = wp_get_current_user();
+    $logout_url = wp_logout_url(home_url());
+    // $user_uni_uid = $_COOKIE["user_uni_uid".$ID->user_login.""];
+    $sql = "select * from membership where id_user = ".$ID->ID." order by end_date desc limit 1;";  
+    $getinfo = $wpdb->get_results($sql);    
+    // print_r($getinfo); die();
+    $_SESSION['MEMBERSHIP'] = $getinfo[0]->end_date;
+    // print_r($_SESSION);
+    // print_r($getinfo[0]->end_date);
+    // die();
+
+}
+add_action('wp_login', 'checkMembership', 1);
+
+
+
 ?>
 
 
