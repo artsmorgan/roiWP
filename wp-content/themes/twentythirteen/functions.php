@@ -789,6 +789,30 @@ function checkMembership(){
 }
 add_action('wp_login', 'checkMembership', 1);
 
+add_shortcode( 'get-membership' , 'getMembershipDate' );
+function getMembershipDate(){
+	global $wpdb;       
+    $ID = wp_get_current_user();
+    $logout_url = wp_logout_url(home_url());
+    // $user_uni_uid = $_COOKIE["user_uni_uid".$ID->user_login.""];
+    $sql = "select * from membership where id_user = ".$ID->ID." order by end_date desc limit 1;";  
+    $getinfo = $wpdb->get_results($sql);    
+    $membershipInfo = $getinfo[0]->end_date;
+
+    $expiresIn = strtotime($getinfo[0]->end_date);		
+	// $today = date("Y-m-d H:i:s");		
+	$todayStr = strtotime(date("Y-m-d H:i:s"));
+	
+
+    if(!$membershipInfo){
+    	$membershipInfo = 'Not a member yet, <a class="renew-it" href="/index.php/subscribe/">Subscribe!</a>';
+    }
+    else if($todayStr > $expiresIn){
+    	$membershipInfo = 'Expired! <a class="renew-it" href="/index.php/subscribe/">Renew It!</a>';	
+    }
+    return $membershipInfo;
+}
+
 
 
 ?>

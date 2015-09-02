@@ -58,11 +58,13 @@
 	    $sql = "select * from membership where id_user = ".$user->ID." order by end_date desc limit 1;";  
 	    $getinfo = $wpdb->get_results($sql);    
 	    
-		$expiresIn = strtotime($getinfo[0]->end_date);		
+		$expiresIn = strtotime($getinfo[0]->end_date);	
 		// $today = date("Y-m-d H:i:s");		
 		$todayStr = strtotime(date("Y-m-d H:i:s"));
 		
-		if($todayStr > $expiresIn){
+		if(!$expiresIn){
+			wp_redirect( '/index.php/subscribe/' ); exit;
+		}else if($todayStr > $expiresIn){
 			// print_r('Va jalando!');
 			wp_redirect( '/index.php/not-subscribe/' ); exit;
 		}
@@ -117,10 +119,10 @@
 							<?php 
 								$current_user = wp_get_current_user();
 								// print_r($current_user);die();
-								echo 'Welcome ' . $current_user->display_name . '! | <a href="'. wp_logout_url( home_url() ).'"><i class="fa fa-sign-out"></i> Logout</a>';
+								echo 'Welcome ' . $current_user->display_name . '! | <a href="/index.php/profile">My Profile</a> | <a href="'. wp_logout_url( home_url() ).'"><i class="fa fa-sign-out"></i> Logout</a>';
 							?>
 					<?php else: ?>
-							<a href="#" class="btn btn-4 btn-4a icon-arrow-right">Subscribe</a>
+							<a href="/index.php/register" class="btn btn-4 btn-4a icon-arrow-right">Subscribe</a>
 							<a href="#" class="btn btn-customer pull-right fadeIn-10"  data-toggle="modal" data-target="#login-modal"><i class="fa fa-key"></i> Members Login </a>
 					<?php endif; ?>	
 				</div>	
