@@ -36,6 +36,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="/css/default.css" />
 	<link rel="stylesheet" type="text/css" href="/css/component.css" />
+	<link rel="stylesheet" type="text/css" href="/wp-content/plugins/profile-builder/assets/css/style-front-end.css?ver=4.2.2" />
 	
 	<!-- CSS3 button js -->
 	<script src="/js/modernizr.custom.js"></script>
