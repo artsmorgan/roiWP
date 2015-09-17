@@ -17,9 +17,9 @@
 			<div class="site-info">				
 				<a href="#">
 					<i class="fa fa-envelope-o"></i>
- 					info@royalsportsinc.com
+ 					info@roialsports.com
  				</a>
-				<a href="#" class="pull-right">RoyalSports Inc | 2015</a>
+				<a href="#" class="pull-right">RoialSports Inc | 2015</a>
 			</div><!-- .site-info -->
 		</footer><!-- #colophon -->
 	</div><!-- #page -->
