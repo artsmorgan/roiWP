@@ -3369,6 +3369,7 @@ img.alignnone {
 .col-43 ul li{
 	float: left;
   	width: 100%;
+  	margin: 10px 0;
 }
 
 .check-icon{
