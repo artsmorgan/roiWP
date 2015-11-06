@@ -124,7 +124,7 @@
 								echo 'Welcome ' . $current_user->display_name . '! | <a href="/index.php/profile">My Profile</a> | <a href="'. wp_logout_url( home_url() ).'"><i class="fa fa-sign-out"></i> Logout</a>';
 							?>
 					<?php else: ?>
-							<a href="/index.php/register" class="btn btn-4 btn-4a icon-arrow-right">Subscribe</a>
+							<a href="/index.php/subscribe" class="btn btn-4 btn-4a icon-arrow-right">Subscribe</a>
 							<a href="#" class="btn btn-customer pull-right fadeIn-10"  data-toggle="modal" data-target="#login-modal"><i class="fa fa-key"></i> Members Login </a>
 					<?php endif; ?>	
 				</div>	

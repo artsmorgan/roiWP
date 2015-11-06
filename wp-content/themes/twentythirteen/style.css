@@ -3740,10 +3740,21 @@ float: left;
 	text-align: justify;
 }
 
+.input-image{
+	padding-top: 10px;
+    border: none;
+    border-top: 1px dashed #ccc;
+}
+
 
 @media only screen 
   and (min-width: 320px) 
   and (max-width: 480px){
+
+  	.input-image{
+	    margin-top: 55px;
+  	}
+
   	.hide-sm{
   		display: inline-block;
   	}
@@ -3842,6 +3853,10 @@ float: left;
     .subscription-txt {
     	margin-top: -25px;
     }	
+
+    .save{
+    	width: 100%;
+    }
 }  	
 
 
