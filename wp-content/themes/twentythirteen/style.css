@@ -3508,7 +3508,7 @@ img.alignnone {
 }
 .item-container{	
 	float: left;
-	width: 20%;
+	    width: 175px;
     min-height: 400px;
     margin: 48px 25px;
 }
@@ -3577,7 +3577,7 @@ img.alignnone {
 .save{
 	margin-top: 140px;
 	text-align: center;
-	width: 200px;
+	width: 100%;
 }
 
 .entry-meta, .entry-content{
